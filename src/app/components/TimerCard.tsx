@@ -13,7 +13,7 @@ export default function TimerCard({ className = '' }: { className?: string }) {
           <b>{time.m}</b><span>хв</span>
           <b>{time.s}</b><span>с</span>
         </p>
-        <p className={styles.cardLabel}>Приєднатись до марафону зі знижкою 80%</p>
+        <p className={styles.cardLabel}>Оформити доступ зі знижкою 80%</p>
       </div>
       <div className={styles.cardArrow}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

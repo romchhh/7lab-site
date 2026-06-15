@@ -36,7 +36,7 @@ export default function StructuredData() {
   const course = {
     '@context': 'https://schema.org',
     '@type': 'Course',
-    name: '10-денний марафон англійської',
+    name: '10-тижневий марафон англійської',
     description: SITE_DESCRIPTION,
     provider: {
       '@type': 'EducationalOrganization',

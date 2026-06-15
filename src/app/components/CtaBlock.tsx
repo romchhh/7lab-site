@@ -10,7 +10,7 @@ export default function CtaBlock() {
             Приєднуйся за <span className={styles.newPrice}>490 грн</span>{' '}
             <span className={styles.oldPrice}>замість 2 450 грн</span>
           </p>
-          <p className={styles.note}>Місця обмежені — акція діє до кінця дня</p>
+          <p className={styles.note}>Місця обмежені. Акція діє до кінця дня</p>
         </div>
         <TimerCard />
       </div>

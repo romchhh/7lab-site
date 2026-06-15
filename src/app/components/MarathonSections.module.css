@@ -239,6 +239,10 @@
 
 .leadBox em { font-style: italic; color: var(--sky); }
 
+.marathonAbout {
+  scroll-margin-top: 100px;
+}
+
 .benefitGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -367,8 +371,9 @@
   color: var(--deep);
 }
 .prizeFeatured .prizeDesc {
-  font-size: var(--heading-subsection);
+  font-size: clamp(16px, 1.8vw, 20px);
   color: var(--sky);
+  line-height: 1.45;
 }
 
 /* ── Scenarios ── */
@@ -439,15 +444,29 @@
   justify-content: center;
 }
 
-.problemCard p { font-size: 16px; font-weight: 600; line-height: 1.45; }
+.problemCard p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--slate);
+}
 
-.quoteWrap { max-width: 720px; }
+.problemOutcome {
+  margin-top: 12px;
+  padding: clamp(28px, 4vw, 40px);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(var(--sky-rgb), 0.06) 100%);
+  border: 1px solid rgba(var(--sky-rgb), 0.14);
+  box-shadow: 0 12px 40px rgba(var(--deep-rgb), 0.06);
+}
 
 .quoteIntro {
-  font-size: 18px;
-  color: var(--slate);
-  margin-bottom: 20px;
-  line-height: 1.6;
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 24px;
+  line-height: 1.55;
+  max-width: 640px;
 }
 
 .quoteBlock {
@@ -460,15 +479,16 @@
 }
 .quoteBlock span {
   display: block;
-  font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 700;
-  font-style: italic;
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 800;
+  font-style: normal;
   color: var(--deep);
-  padding: 16px 24px;
+  padding: 18px 24px;
   background: #fff;
-  border-radius: 12px;
-  border-left: 4px solid var(--sky);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  border-radius: 14px;
+  border-left: 5px solid var(--sky);
+  box-shadow: 0 6px 24px rgba(var(--deep-rgb), 0.08);
+  line-height: 1.35;
 }
 
 /* ── Lessons + Bonuses ── */

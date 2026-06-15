@@ -10,7 +10,7 @@ export default function Hero() {
       <div className={styles.bg}>
         <Image
           src={SITE_HERO_IMAGE}
-          alt={`Марафон англійської ${SITE_NAME} — почни говорити за 10 днів`}
+          alt={`Марафон англійської ${SITE_NAME}: почни говорити вже за 10 занять`}
           fill
           priority
           sizes="100vw"
@@ -23,7 +23,7 @@ export default function Hero() {
         <div className={styles.textBlock}>
           <h1 className={styles.headline}>
             Почни говорити <em>англійською</em>{' '}
-            <span className={styles.highlight}>за 10 днів</span>
+            <span className={styles.highlight}>вже за 10 занять</span>
           </h1>
 
           <p className={styles.prizeBlock}>

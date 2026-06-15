@@ -11,3 +11,10 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
 }
+
+#pro-marafon,
+#programa,
+#faq,
+#kontakt {
+  scroll-margin-top: 100px;
+}

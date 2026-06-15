@@ -15,8 +15,8 @@ export default function Footer() {
         <div className={styles.cols}>
           <div className={styles.col}>
             <h3>Формат</h3>
-            <p>10 тем за 10 днів</p>
-            <p>Щоденні уроки та практика</p>
+            <p>10 тем за 10 занять</p>
+            <p>70 днів підтримки від куратора</p>
           </div>
 
           <div className={styles.col}>

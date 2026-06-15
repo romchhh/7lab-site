@@ -14,7 +14,12 @@ const BENEFITS = [
 ]
 
 const PRIZES = [
-  { icon: '🎁', title: 'Головний приз', desc: '10 000 грн', featured: true },
+  {
+    icon: '🎁',
+    title: 'Головний приз',
+    desc: 'Розіграш 10 000 грн за проходження всього марафону та виконання всіх завдань',
+    featured: true,
+  },
   { icon: '🥈', title: '2-е місце', desc: '8 індивідуальних занять з англійської' },
   { icon: '🥉', title: '3-є місце', desc: 'Подарунковий бокс з нашим мерчем' },
 ]
@@ -42,7 +47,7 @@ const PROBLEMS = [
 ]
 
 const LESSON_INCLUDES = [
-  { icon: '🎥', text: 'Відеопояснення' },
+  { icon: '🎥', text: 'Відеопояснення граматики та слів' },
   { icon: '🎧', text: 'Аудіо для запам\'ятовування' },
   { icon: '📄', text: 'PDF-конспект' },
   { icon: '🗣', text: 'Speaking-завдання' },
@@ -98,7 +103,7 @@ export default function MarathonSections() {
   return (
     <>
       {/* Problem + Benefits */}
-      <section id="pro-marafon" className={`${styles.section} ${styles.light}`}>
+      <section className={`${styles.section} ${styles.light}`}>
         <div className={styles.container}>
           <div className={styles.introPanel}>
             <h2 className={styles.introHeading}>
@@ -111,7 +116,7 @@ export default function MarathonSections() {
                   Купували курси. Дивилися відео на YouTube. Вчили слова. Зберігали корисні таблиці.
                 </p>
                 <p>
-                  Але коли потрібно сказати навіть просте речення англійською —{' '}
+                  Але коли потрібно сказати навіть просте речення англійською,{' '}
                   <strong>слова просто зникають з голови.</strong>
                 </p>
               </div>
@@ -124,14 +129,16 @@ export default function MarathonSections() {
                 </p>
               </div>
             </div>
-
-            <p className={styles.leadBox}>
-              Саме тому ми створили 10-денний марафон, який допомагає не просто дивитися уроки, а{' '}
-              <em>реально почати використовувати англійську.</em>
-            </p>
           </div>
 
-          <div className={styles.benefitGrid}>
+          <div id="pro-marafon" className={styles.marathonAbout}>
+            <p className={styles.leadBox}>
+              Саме тому ми створили <strong>10-тижневий марафон</strong>, який допомагає не просто
+              дивитися уроки, а <em>реально почати використовувати англійську.</em> Плюс{' '}
+              <strong>70 днів підтримки</strong> від куратора.
+            </p>
+
+            <div className={styles.benefitGrid}>
             {BENEFITS.map((item, i) => (
               <div
                 key={item.text}
@@ -142,6 +149,7 @@ export default function MarathonSections() {
                 <p className={styles.benefitText}>{item.text}</p>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
@@ -163,7 +171,7 @@ export default function MarathonSections() {
       </section>
 
       {/* Scenarios */}
-      <section id="programa" className={`${styles.section} ${styles.muted}`}>
+      <section className={`${styles.section} ${styles.muted}`}>
         <div className={styles.container}>
           <SectionTitle>Що ви зможете робити вже через 10 занять</SectionTitle>
           <div className={styles.scenarioGrid}>
@@ -195,8 +203,10 @@ export default function MarathonSections() {
               </div>
             ))}
           </div>
-          <div className={styles.quoteWrap}>
-            <p className={styles.quoteIntro}>У результаті людина може знати десятки правил і сотні слів, але не може сказати:</p>
+          <div className={styles.problemOutcome}>
+            <p className={styles.quoteIntro}>
+              У результаті людина може знати десятки правил і сотні слів, але не може сказати навіть:
+            </p>
             <blockquote className={styles.quoteBlock}>
               <span>&ldquo;Мене звати Олена.&rdquo;</span>
               <span>&ldquo;Я працюю в офісі.&rdquo;</span>
@@ -208,7 +218,7 @@ export default function MarathonSections() {
       </section>
 
       {/* Lesson + Bonuses */}
-      <section className={`${styles.section} ${styles.whiteFromAccent}`}>
+      <section id="programa" className={`${styles.section} ${styles.whiteFromAccent}`}>
         <div className={styles.container}>
           <SectionTitle>Що входить у кожен урок</SectionTitle>
           <div className={styles.lessonGrid}>
@@ -252,8 +262,8 @@ export default function MarathonSections() {
       {/* Results */}
       <section className={`${styles.section} ${styles.dark} marathon-glow`}>
         <div className={styles.container}>
-          <SectionTitle light>Що ви отримаєте після марафону</SectionTitle>
-          <p className={styles.subheadingLight}>Через 10 днів ви:</p>
+          <SectionTitle light>Що ви отримаєте після 10 занять</SectionTitle>
+          <p className={styles.subheadingLight}>Після проходження марафону ви:</p>
           <div className={styles.resultGrid}>
             {RESULTS.map(r => (
               <div key={r} className={styles.resultCard}>
@@ -301,9 +311,9 @@ export default function MarathonSections() {
           <div className={styles.finalInner}>
             <SectionTitle light>Не відкладайте англійську ще на один понеділок</SectionTitle>
             <div className={styles.finalProse}>
-              <p>Через 10 днів ці 10 днів все одно пройдуть.</p>
+              <p>Через 10 занять ці 10 тижнів все одно пройдуть.</p>
               <p className={styles.emphasisLight}>
-                Ви будете далі думати &ldquo;треба вивчити англійську&rdquo; — чи вже почнете говорити?
+                Ви будете далі думати &ldquo;треба вивчити англійську&rdquo;, чи вже почнете говорити?
               </p>
             </div>
             <a href="#kontakt" className={styles.finalCta}>
