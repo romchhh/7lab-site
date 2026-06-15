@@ -1,5 +1,3 @@
-import type { PaymentRecord } from './payments'
-
 function getTelegramConfig() {
   const token = process.env.TELEGRAM_BOT_TOKEN
   const chatId = process.env.TELEGRAM_CHAT_ID
@@ -31,20 +29,35 @@ async function sendTelegramMessage(text: string): Promise<void> {
   }
 }
 
-export async function sendPaymentNotification(payment: PaymentRecord): Promise<void> {
+export type PaymentNotificationData = {
+  name: string
+  phone: string
+  telegram: string
+  amount: number
+  invoiceId: string
+  reference: string
+}
+
+export async function sendPaymentNotification(payment: PaymentNotificationData): Promise<void> {
   const lines = [
     '💳 <b>Нова оплата марафону</b>',
     '',
     `👤 <b>Ім'я:</b> ${escapeHtml(payment.name)}`,
-    `📞 <b>Телефон:</b> ${escapeHtml(payment.phone)}`,
+  ]
+
+  if (payment.phone && payment.phone !== '—') {
+    lines.push(`📞 <b>Телефон:</b> ${escapeHtml(payment.phone)}`)
+  }
+
+  if (payment.telegram) {
+    lines.push(`✈️ <b>Telegram:</b> ${escapeHtml(payment.telegram)}`)
+  }
+
+  lines.push(
     `💰 <b>Сума:</b> ${payment.amount} грн`,
     `🧾 <b>Рахунок:</b> ${escapeHtml(payment.invoiceId)}`,
     `🔖 <b>Reference:</b> ${escapeHtml(payment.reference)}`,
-  ]
-
-  if (payment.comment.trim()) {
-    lines.push(`💬 <b>Коментар:</b> ${escapeHtml(payment.comment)}`)
-  }
+  )
 
   await sendTelegramMessage(lines.join('\n'))
 }

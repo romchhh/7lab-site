@@ -37,7 +37,14 @@ export type MonoWebhookPayload = {
   reference?: string
   modifiedDate?: string
   failureReason?: string
+  merchantPaymInfo?: {
+    reference?: string
+    destination?: string
+    comment?: string
+  }
 }
+
+export type MonoInvoiceStatus = MonoWebhookPayload
 
 let cachedPublicKey: string | null = null
 
@@ -102,4 +109,26 @@ export async function createMonoInvoice(
   }
 
   return { invoiceId, pageUrl }
+}
+
+export async function fetchMonoInvoiceStatus(
+  token: string,
+  invoiceId: string
+): Promise<MonoInvoiceStatus> {
+  const res = await fetch(`${MONO_API}/invoice/status?invoiceId=${encodeURIComponent(invoiceId)}`, {
+    headers: { 'X-Token': token },
+    cache: 'no-store',
+  })
+
+  const data = await res.json()
+
+  if (!res.ok) {
+    throw new Error(
+      typeof data === 'object' && data && 'errText' in data
+        ? String((data as { errText: string }).errText)
+        : `Не вдалося отримати статус рахунку: ${res.status}`
+    )
+  }
+
+  return data as MonoInvoiceStatus
 }

@@ -1,43 +1,31 @@
 'use client'
 
-import { useState, type MouseEvent, type ReactNode } from 'react'
-import { startPayment, type PaymentPayload } from '@/lib/startPayment'
+import { type MouseEvent, type ReactNode } from 'react'
+import { usePaymentModal } from './PaymentProvider'
 
 type PaymentButtonProps = {
   className?: string
   children: ReactNode
   'aria-label'?: string
-  payload?: PaymentPayload
   disabled?: boolean
-  onBeforePayment?: () => void
-  loadingLabel?: string
+  onBeforeOpen?: () => void
 }
 
 export default function PaymentButton({
   className,
   children,
   'aria-label': ariaLabel,
-  payload,
   disabled,
-  onBeforePayment,
-  loadingLabel = 'Перенаправлення на оплату…',
+  onBeforeOpen,
 }: PaymentButtonProps) {
-  const [loading, setLoading] = useState(false)
+  const { openPaymentModal } = usePaymentModal()
 
-  const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    if (loading || disabled) return
+    if (disabled) return
 
-    onBeforePayment?.()
-    setLoading(true)
-
-    try {
-      await startPayment(payload)
-    } catch (err) {
-      const message = err instanceof Error ? err.message : 'Сталася помилка. Спробуйте ще раз.'
-      window.alert(message)
-      setLoading(false)
-    }
+    onBeforeOpen?.()
+    openPaymentModal()
   }
 
   return (
@@ -45,11 +33,10 @@ export default function PaymentButton({
       type="button"
       className={className}
       onClick={handleClick}
-      disabled={loading || disabled}
+      disabled={disabled}
       aria-label={ariaLabel}
-      aria-busy={loading}
     >
-      {loading ? loadingLabel : children}
+      {children}
     </button>
   )
 }

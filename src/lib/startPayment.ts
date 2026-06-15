@@ -1,10 +1,10 @@
 export type PaymentPayload = {
-  name?: string
+  name: string
   phone?: string
-  comment?: string
+  telegram?: string
 }
 
-export async function startPayment(payload: PaymentPayload = {}): Promise<void> {
+export async function startPayment(payload: PaymentPayload): Promise<void> {
   const res = await fetch('/api/payment/create', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

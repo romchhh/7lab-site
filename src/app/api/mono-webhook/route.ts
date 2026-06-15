@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 import {
+  fetchMonoInvoiceStatus,
   fetchMonoPublicKey,
   verifyMonoWebhookSignature,
   type MonoWebhookPayload,
 } from '@/lib/mono'
-import { getPaymentByInvoiceId, updatePaymentByInvoiceId } from '@/lib/payments'
+import { decodePaymentMeta } from '@/lib/paymentMeta'
 import { sendPaymentNotification } from '@/lib/telegram'
+import { MARATHON_PRICE } from '@/app/site'
+
+function getCustomerFromPayload(payload: MonoWebhookPayload) {
+  return decodePaymentMeta(payload.merchantPaymInfo?.comment)
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -30,44 +36,41 @@ export async function POST(req: NextRequest) {
     }
 
     const payload = JSON.parse(rawBody) as MonoWebhookPayload
-    const { invoiceId, status, modifiedDate } = payload
+    const { invoiceId, status } = payload
 
     if (!invoiceId) {
       return NextResponse.json({ ok: true })
     }
 
-    const payment = await getPaymentByInvoiceId(invoiceId)
-    if (!payment) {
-      console.warn('[mono-webhook] Unknown invoice:', invoiceId)
-      return NextResponse.json({ ok: true })
-    }
-
     if (status === 'success') {
-      if (payment.status !== 'paid') {
-        const updated = await updatePaymentByInvoiceId(invoiceId, {
-          status: 'paid',
-          paidAt: new Date().toISOString(),
-          modifiedDate,
-        })
+      let customer = getCustomerFromPayload(payload)
 
-        if (updated) {
-          try {
-            await sendPaymentNotification(updated)
-          } catch (error) {
-            console.error('[mono-webhook] Telegram notification failed:', error)
-          }
+      if (!customer) {
+        try {
+          const invoice = await fetchMonoInvoiceStatus(monoToken, invoiceId)
+          customer = getCustomerFromPayload(invoice)
+        } catch (error) {
+          console.error('[mono-webhook] Failed to fetch invoice status:', error)
         }
       }
-    } else if (status === 'failure' || status === 'reversed') {
-      await updatePaymentByInvoiceId(invoiceId, {
-        status: 'failed',
-        modifiedDate,
-      })
-    } else if (status === 'expired') {
-      await updatePaymentByInvoiceId(invoiceId, {
-        status: 'expired',
-        modifiedDate,
-      })
+
+      const reference =
+        payload.reference ??
+        payload.merchantPaymInfo?.reference ??
+        invoiceId
+
+      try {
+        await sendPaymentNotification({
+          name: customer?.name ?? 'Не вказано',
+          phone: customer?.phone || '—',
+          telegram: customer?.telegram || '',
+          amount: payload.amount ? payload.amount / 100 : MARATHON_PRICE,
+          invoiceId,
+          reference,
+        })
+      } catch (error) {
+        console.error('[mono-webhook] Telegram notification failed:', error)
+      }
     }
 
     return NextResponse.json({ ok: true })

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import crypto from 'crypto'
 import { createMonoInvoice } from '@/lib/mono'
-import { savePayment } from '@/lib/payments'
+import { encodePaymentMeta } from '@/lib/paymentMeta'
 import { MARATHON_PRICE, SITE_NAME, SITE_URL } from '@/app/site'
 
 export async function POST(req: NextRequest) {
@@ -15,13 +15,22 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json()
-    const name = typeof body.name === 'string' && body.name.trim() ? body.name.trim() : 'Учасник марафону'
-    const phone = typeof body.phone === 'string' && body.phone.trim() ? body.phone.trim() : 'Не вказано'
-    const comment = typeof body.comment === 'string' ? body.comment.trim() : ''
+    const name = typeof body.name === 'string' ? body.name.trim() : ''
+    const phone = typeof body.phone === 'string' ? body.phone.trim() : ''
+    const telegram = typeof body.telegram === 'string' ? body.telegram.trim() : ''
+
+    if (!name) {
+      return NextResponse.json({ error: 'Вкажіть ім\'я' }, { status: 400 })
+    }
+
+    if (!phone && !telegram) {
+      return NextResponse.json({ error: 'Вкажіть номер телефону або Telegram' }, { status: 400 })
+    }
 
     const reference = crypto.randomUUID()
     const amountMinor = MARATHON_PRICE * 100
     const siteUrl = SITE_URL
+    const comment = encodePaymentMeta({ name, phone, telegram })
 
     const invoice = await createMonoInvoice(monoToken, {
       amount: amountMinor,
@@ -29,7 +38,7 @@ export async function POST(req: NextRequest) {
       merchantPaymInfo: {
         reference,
         destination: `Марафон англійської | ${SITE_NAME}`,
-        comment: comment || `Оплата марафону: ${name}`,
+        comment,
         basketOrder: [
           {
             name: '10-тижневий марафон англійської',
@@ -45,17 +54,6 @@ export async function POST(req: NextRequest) {
       webHookUrl: `${siteUrl}/api/mono-webhook`,
       validity: 3600,
       paymentType: 'debit',
-    })
-
-    await savePayment({
-      reference,
-      invoiceId: invoice.invoiceId,
-      name,
-      phone,
-      comment,
-      amount: MARATHON_PRICE,
-      status: 'pending',
-      createdAt: new Date().toISOString(),
     })
 
     return NextResponse.json({

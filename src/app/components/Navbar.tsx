@@ -58,7 +58,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
         {SITE_NAV.map((item) => (
           <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</a>
         ))}
-        <PaymentButton className={styles.drawerCta} onBeforePayment={() => setMenuOpen(false)} aria-label="Оформити доступ">
+        <PaymentButton className={styles.drawerCta} onBeforeOpen={() => setMenuOpen(false)} aria-label="Оформити доступ">
           Оформити доступ
         </PaymentButton>
       </div>
