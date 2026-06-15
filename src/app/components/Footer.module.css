@@ -89,6 +89,25 @@
 .bottom a:hover { color: var(--deep); }
 .dev { text-decoration: underline !important; letter-spacing: 0.04em; }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer {
+    padding: var(--section-y-md) var(--page-x) 0;
+  }
+
+  .top {
+    gap: 44px;
+  }
+
+  .cols {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .wordmark {
+    margin-top: 48px;
+  }
+}
+
 @media (max-width: 768px) {
   .footer { padding: var(--section-y-sm) var(--page-x) 0; }
   .cols { grid-template-columns: 1fr 1fr; gap: 32px; }

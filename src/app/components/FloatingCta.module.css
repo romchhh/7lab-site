@@ -69,9 +69,17 @@
   50% { box-shadow: 0 8px 32px rgba(var(--sky-rgb), 0.45), 0 0 0 10px rgba(var(--sky-rgb), 0); }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .fab {
     right: var(--page-x);
+    bottom: max(22px, env(safe-area-inset-bottom));
+    padding: 16px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fab {
     bottom: max(20px, env(safe-area-inset-bottom));
     padding: 16px 22px;
     font-size: 13px;

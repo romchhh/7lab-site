@@ -103,6 +103,22 @@
   line-height: 1.6;
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .trigger {
+    padding: 22px 24px;
+    gap: 18px;
+  }
+
+  .question {
+    font-size: var(--heading-faq);
+  }
+
+  .answer {
+    padding: 0 24px 22px 60px;
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 640px) {
   .trigger {
     padding: 20px 22px;

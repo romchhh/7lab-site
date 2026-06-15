@@ -181,10 +181,20 @@
   padding: 8px;
 }
 
+@media (max-width: 1024px) {
+  .nav { padding: 28px var(--page-x); }
+  .solid { padding: 22px var(--page-x); }
+  .center, .right { display: none; }
+  .hamburger { display: flex; }
+
+  .drawer a { font-size: 38px; }
+  .drawerCta { font-size: 15px !important; padding: 16px 40px; }
+}
+
 @media (max-width: 768px) {
   .nav { padding: 26px var(--page-x); }
   .solid { padding: 20px var(--page-x); }
-  .brand { flex-shrink: 0; }
-  .center, .right { display: none; }
-  .hamburger { display: flex; }
+
+  .drawer a { font-size: 44px; }
+  .drawerCta { font-size: 16px !important; padding: 18px 44px; }
 }

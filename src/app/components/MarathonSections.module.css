@@ -813,19 +813,67 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .introGrid { grid-template-columns: 1fr; gap: 28px; }
-  .introHeading { max-width: none; }
+  .heading,
+  .headingLight {
+    margin-bottom: 36px;
+    max-width: none;
+  }
+
   .benefitGrid { grid-template-columns: repeat(2, 1fr); }
   .benefitFeatured { grid-column: span 2; }
   .prizeGrid { grid-template-columns: 1fr; }
   .prizeFeatured { order: -1; }
   .scenarioGrid { grid-template-columns: repeat(2, 1fr); }
+  .scenarioWide { grid-column: span 2; }
   .problemGrid { grid-template-columns: repeat(2, 1fr); }
   .lessonGrid { grid-template-columns: repeat(2, 1fr); }
   .bonusGrid { grid-template-columns: 1fr; }
   .audienceGrid { grid-template-columns: repeat(2, 1fr); }
   .resultGrid { grid-template-columns: repeat(2, 1fr); }
-  .timeline { grid-template-columns: repeat(2, 1fr); }
+  .timeline { grid-template-columns: repeat(2, 1fr); gap: 40px 28px; }
+  .timeline li { min-height: 148px; padding: 24px 20px; }
+  .benefitCard { padding: 28px 24px; min-height: 176px; }
+  .benefitText { font-size: clamp(18px, 2.2vw, 22px); }
+  .introPanel { padding: 32px 36px; }
+  .quoteBlock span { font-size: clamp(18px, 2.4vw, 24px); padding: 14px 20px; }
+  .finalInner { max-width: 92%; }
+  .finalProse { font-size: 18px; }
+  .emphasisLight { font-size: clamp(24px, 3.4vw, 34px); }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .introGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .introHeading {
+    max-width: 14em;
+    font-size: clamp(26px, 3.4vw, 34px);
+  }
+
+  .introCol {
+    font-size: 16px;
+    line-height: 1.68;
+    gap: 18px;
+  }
+
+  .proseLead { font-size: 17px; }
+  .emphasis { font-size: clamp(24px, 3vw, 30px); }
+  .leadBox { font-size: 17px; padding: 20px 24px; }
+
+  .prizeCard { padding: 32px 24px; }
+  .scenarioCard { padding: 24px 20px; }
+  .lessonCard { min-height: 160px; padding: 28px 18px; }
+  .audienceCard,
+  .resultCard,
+  .problemCard { padding: 24px 20px; }
+  .bonusBlock { padding: 40px 36px; }
+}
+
+@media (max-width: 768px) {
+  .introGrid { grid-template-columns: 1fr; gap: 28px; }
+  .introHeading { max-width: none; }
 }
 
 @media (max-width: 640px) {

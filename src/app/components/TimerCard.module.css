@@ -42,6 +42,21 @@
 }
 .card:hover .cardArrow { background: var(--sky); transform: rotate(45deg); box-shadow: 0 4px 16px rgba(var(--sky-rgb), 0.32); }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card {
+    min-width: unset;
+    width: 100%;
+    flex: 1 1 100%;
+    padding: 18px 20px;
+    gap: 18px;
+  }
+
+  .timer { font-size: 26px; }
+  .timer span { font-size: 16px; }
+  .cardLabel { font-size: 13px; margin-top: 8px; }
+  .cardArrow { width: 46px; height: 46px; }
+}
+
 @media (max-width: 768px) {
   .card {
     min-width: unset;

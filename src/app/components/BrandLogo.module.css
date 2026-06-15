@@ -60,6 +60,15 @@
   --logo-sub-size: 10px;
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .logo:not(.lg) {
+    --logo-size: 40px;
+    --logo-text-size: 15px;
+    --logo-sub-size: 11px;
+    gap: 11px;
+  }
+}
+
 @media (max-width: 768px) {
   .logo:not(.lg) {
     --logo-size: 38px;

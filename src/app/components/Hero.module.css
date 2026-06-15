@@ -212,6 +212,51 @@
   text-transform: uppercase;
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .body {
+    padding: 0 var(--page-x) 44px;
+  }
+
+  .textBlock {
+    margin-bottom: 28px;
+    gap: 16px;
+  }
+
+  .headline {
+    font-size: clamp(34px, 4.8vw, 46px);
+    max-width: 85%;
+    line-height: 1.14;
+  }
+
+  .prizeBlock {
+    max-width: 100%;
+  }
+
+  .bottomRow {
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .priceBlock {
+    flex: 1 1 300px;
+    max-width: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .bottomRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .overlay {
+    background:
+      linear-gradient(to top, rgba(var(--deep-rgb), 0.92) 0%, rgba(var(--deep-rgb), 0.68) 45%, rgba(var(--deep-rgb), 0.22) 100%),
+      linear-gradient(to right, rgba(var(--deep-rgb), 0.55) 0%, transparent 65%);
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     height: 100svh;
