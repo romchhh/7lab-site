@@ -4,8 +4,16 @@ export const SITE_LOGO = '/images/PNG-зображення 1.png'
 export const SITE_HERO_IMAGE = '/images/102.jpg'
 export const SITE_CONTACT_IMAGE = '/images/3D4A6903.JPG'
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? 'https://royalacademy.school'
+function normalizeSiteUrl(url: string): string {
+  const trimmed = url.trim().replace(/\/$/, '')
+  if (!trimmed) return 'https://royalacademy.school'
+  if (/^https?:\/\//i.test(trimmed)) return trimmed
+  return `https://${trimmed}`
+}
+
+export const SITE_URL = normalizeSiteUrl(
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://royalacademy.school',
+)
 
 export const SITE_TITLE = `${SITE_NAME} | Марафон англійської за 10 занять`
 export const SITE_DESCRIPTION =
