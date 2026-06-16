@@ -79,3 +79,15 @@
     --heading-faq: 19px;
   }
 }
+
+@media (max-width: 768px) {
+  :root {
+    --heading-section: clamp(26px, 6.8vw, 34px);
+    --heading-section-sm: clamp(24px, 6.2vw, 30px);
+    --heading-subsection: clamp(22px, 5.2vw, 28px);
+    --heading-sub: 17px;
+    --heading-card: 14px;
+    --heading-faq: 16px;
+    --heading-faq-sm: 15px;
+  }
+}

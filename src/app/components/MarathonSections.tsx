@@ -1,5 +1,6 @@
 import CtaBlock from './CtaBlock'
 import PaymentButton from './PaymentButton'
+import ScenarioFlipCard from './ScenarioFlipCard'
 import FaqAccordion from './FaqAccordion'
 import { SITE_FAQ } from '../site'
 import styles from './MarathonSections.module.css'
@@ -26,17 +27,17 @@ const PRIZES = [
 ]
 
 const SCENARIOS = [
-  { icon: '✈️', title: 'Запитати дорогу та зрозуміти відповідь', quote: '"How can I get to...?"' },
-  { icon: '🏨', title: 'Самостійно заселитися в готель', quote: '"I would like to check in."' },
-  { icon: '☕', title: 'Замовити їжу та напої в кафе', quote: '"I would like a coffee, please."' },
-  { icon: '🚕', title: 'Пояснити водію таксі, куди вам потрібно', quote: '"I need to go to..."' },
-  { icon: '🛍️', title: 'Купити потрібні речі в магазині та поставити запитання продавцю' },
-  { icon: '🗣️', title: 'Розповісти про себе, свою роботу та захоплення' },
-  { icon: '📅', title: 'Говорити про свої плани', quote: '"I am going to..."' },
-  { icon: '❓', title: 'Ставити запитання та підтримувати просту розмову англійською' },
-  { icon: '💬', title: 'Давати поради та рекомендації', quote: '"You should..."' },
-  { icon: '👨‍⚕️', title: 'Пояснити, що вас турбує, та розповісти про самопочуття' },
-  { icon: '✨', title: 'Перестати боятися говорити англійською та почати використовувати її в реальному житті' },
+  { icon: '✈️', title: 'Запитати дорогу та зрозуміти відповідь', translation: 'How can I get to the city center?' },
+  { icon: '🏨', title: 'Самостійно заселитися в готель', translation: 'I would like to check in, please.' },
+  { icon: '☕', title: 'Замовити їжу та напої в кафе', translation: 'I would like a coffee, please.' },
+  { icon: '🚕', title: 'Пояснити водію таксі, куди вам потрібно', translation: 'I need to go to the airport, please.' },
+  { icon: '🛍️', title: 'Купити потрібні речі в магазині та поставити запитання продавцю', translation: 'How much does this cost?' },
+  { icon: '🗣️', title: 'Розповісти про себе, свою роботу та захоплення', translation: 'My name is Anna. I work in an office.' },
+  { icon: '📅', title: 'Говорити про свої плани', translation: 'I am going to travel next month.' },
+  { icon: '❓', title: 'Ставити запитання та підтримувати просту розмову англійською', translation: 'Could you tell me more about it?' },
+  { icon: '💬', title: 'Давати поради та рекомендації', translation: 'You should try this restaurant.' },
+  { icon: '👨‍⚕️', title: 'Пояснити, що вас турбує, та розповісти про самопочуття', translation: 'I do not feel well. I have a headache.' },
+  { icon: '✨', title: 'Перестати боятися говорити англійською та почати використовувати її в реальному житті', translation: 'I can speak English in real life.' },
 ]
 
 const PROBLEMS = [
@@ -175,15 +176,16 @@ export default function MarathonSections() {
       <section className={`${styles.section} ${styles.muted}`}>
         <div className={styles.container}>
           <SectionTitle>Що ви зможете робити вже через 10 занять</SectionTitle>
+          <p className={styles.scenarioHint}>
+            Натисніть на картку, щоб побачити приклад англійською. Натисніть ще раз, щоб повернути.
+          </p>
           <div className={styles.scenarioGrid}>
             {SCENARIOS.map((s, i) => (
-              <div key={s.title} className={`${styles.scenarioCard} ${i === SCENARIOS.length - 1 ? styles.scenarioWide : ''}`}>
-                <span className={styles.scenarioIcon}>{s.icon}</span>
-                <div>
-                  <p className={styles.scenarioTitle}>{s.title}</p>
-                  {s.quote && <p className={styles.scenarioQuote}>{s.quote}</p>}
-                </div>
-              </div>
+              <ScenarioFlipCard
+                key={s.title}
+                scenario={s}
+                wide={i === SCENARIOS.length - 1}
+              />
             ))}
           </div>
         </div>

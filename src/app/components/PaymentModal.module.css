@@ -139,6 +139,12 @@
   border: 1px solid rgba(var(--sky-rgb), 0.18);
 }
 
+@media (max-width: 768px) {
+  .title {
+    font-size: clamp(20px, 4.5vw, 24px);
+  }
+}
+
 .submit {
   display: inline-flex;
   align-items: center;

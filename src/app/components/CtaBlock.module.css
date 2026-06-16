@@ -60,5 +60,5 @@
 
 @media (max-width: 768px) {
   .section { padding: var(--section-y-sm) var(--page-x); }
-  .price { font-size: 22px; }
+  .price { font-size: 20px; }
 }

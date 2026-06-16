@@ -241,12 +241,15 @@
 
 .marathonAbout {
   scroll-margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 5vw, 48px);
 }
 
 .benefitGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: clamp(16px, 2.5vw, 24px);
 }
 
 .benefitCard {
@@ -380,36 +383,25 @@
 .scenarioGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: clamp(14px, 2vw, 20px);
 }
 
-.scenarioCard {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  background: #fff;
-  border-radius: 18px;
-  padding: 28px 24px;
-  border: 1px solid rgba(var(--deep-rgb), 0.06);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-.scenarioCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
-}
-
-.scenarioWide { grid-column: 1 / -1; }
-
-.scenarioIcon { font-size: 32px; flex-shrink: 0; line-height: 1; }
-.scenarioTitle { font-size: 16px; font-weight: 600; line-height: 1.5; color: var(--deep); }
-.scenarioQuote {
-  margin-top: 10px;
+.scenarioHint {
+  margin: -16px 0 28px;
+  max-width: 52ch;
   font-size: 15px;
-  font-style: italic;
-  font-weight: 700;
-  color: var(--sky);
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--slate);
 }
+
+.scenarioHint::before {
+  content: '↻ ';
+  color: var(--sky);
+  font-weight: 800;
+}
+
+/* flip cards: ScenarioFlipCard.module.css */
 
 /* ── Problems ── */
 .problemGrid {
@@ -751,6 +743,16 @@
     gap: 44px;
   }
 
+  .timeline li {
+    align-items: center;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .timeline li p {
+    text-align: center;
+  }
+
   .timeline li .stepArrow {
     left: 50%;
     bottom: -40px;
@@ -846,7 +848,6 @@
   .prizeGrid { grid-template-columns: 1fr; }
   .prizeFeatured { order: -1; }
   .scenarioGrid { grid-template-columns: repeat(2, 1fr); }
-  .scenarioWide { grid-column: span 2; }
   .problemGrid { grid-template-columns: repeat(2, 1fr); }
   .lessonGrid { grid-template-columns: repeat(2, 1fr); }
   .bonusGrid { grid-template-columns: 1fr; }
@@ -885,7 +886,6 @@
   .leadBox { font-size: 17px; padding: 20px 24px; }
 
   .prizeCard { padding: 32px 24px; }
-  .scenarioCard { padding: 24px 20px; }
   .lessonCard { min-height: 160px; padding: 28px 18px; }
   .audienceCard,
   .resultCard,
@@ -896,21 +896,65 @@
 @media (max-width: 768px) {
   .introGrid { grid-template-columns: 1fr; gap: 28px; }
   .introHeading { max-width: none; }
+
+  .heading,
+  .headingLight {
+    margin-bottom: 28px;
+  }
+
+  .introHeading {
+    font-size: clamp(22px, 5.8vw, 28px);
+    margin-bottom: 22px;
+  }
+
+  .emphasis {
+    font-size: clamp(22px, 5.5vw, 26px);
+  }
+
+  .emphasisLight {
+    font-size: clamp(22px, 5.5vw, 28px);
+  }
+
+  .quoteBlock span {
+    font-size: clamp(16px, 4vw, 20px);
+    padding: 12px 16px;
+  }
+
+  .benefitText {
+    font-size: clamp(17px, 4.2vw, 20px);
+  }
+
+  .benefitFeatured .benefitText {
+    font-size: clamp(20px, 5vw, 24px);
+  }
+
+  .prizeTitle {
+    font-size: clamp(17px, 4.2vw, 20px);
+  }
+
+  .timeline li p {
+    font-size: 14px;
+  }
+
+  .scenarioGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 }
 
 @media (max-width: 640px) {
   .section { padding: var(--section-y-sm) var(--page-x); }
   .introPanel { padding: 28px 22px; border-radius: 22px; }
-  .introHeading { font-size: clamp(24px, 6.8vw, 30px); margin-bottom: 24px; }
+  .introHeading { font-size: clamp(20px, 5.5vw, 26px); margin-bottom: 20px; }
   .introCol { gap: 18px; font-size: 16px; line-height: 1.68; }
-  .proseLead { font-size: 17px; }
-  .emphasis { font-size: 28px; }
-  .leadBox { font-size: 16px; padding: 18px 20px; }
-  .heading, .headingLight { margin-bottom: 32px; }
+  .proseLead { font-size: 16px; }
+  .emphasis { font-size: 22px; }
+  .emphasisLight { font-size: 22px; }
+  .leadBox { font-size: 15px; padding: 18px 20px; }
+  .heading, .headingLight { margin-bottom: 24px; }
   .benefitGrid { grid-template-columns: 1fr; }
   .benefitFeatured { grid-column: span 1; }
   .benefitCard { min-height: 180px; padding: 28px 24px; }
-  .scenarioGrid { grid-template-columns: 1fr; }
   .problemGrid { grid-template-columns: 1fr; }
   .lessonGrid { grid-template-columns: repeat(2, 1fr); }
   .lessonCard { padding: 24px 14px; min-height: 148px; }

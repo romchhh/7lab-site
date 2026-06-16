@@ -197,13 +197,16 @@ button.inlineLink {
 @media (max-width: 768px) {
   .footer { padding: var(--section-y-sm) var(--page-x) 0; }
   .cols { grid-template-columns: 1fr 1fr; gap: 28px; }
-  .col h3 { font-size: 17px; }
+  .col h3 { font-size: 13px; }
   .col p,
   .inlineLink,
-  button.inlineLink { font-size: 16px; }
+  button.inlineLink { font-size: 15px; }
   .wordmark { margin-top: 48px; }
   .links { margin-top: 22px; }
   .creditWrap { margin-top: 22px; }
+  .links a {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 480px) {

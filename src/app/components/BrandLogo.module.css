@@ -76,4 +76,11 @@
     --logo-sub-size: 10px;
     gap: 10px;
   }
+
+  .lg {
+    --logo-size: 56px;
+    --logo-text-size: clamp(22px, 5.5vw, 30px);
+    --logo-sub-size: clamp(11px, 2.5vw, 13px);
+    gap: 14px;
+  }
 }
