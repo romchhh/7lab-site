@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import {
-  MARATHON_PRICE,
   SITE_DESCRIPTION,
   SITE_HERO_IMAGE,
   SITE_KEYWORDS,
@@ -14,7 +13,7 @@ const ogImage = {
   url: SITE_HERO_IMAGE,
   width: 1200,
   height: 630,
-  alt: `Марафон англійської ${SITE_NAME}`,
+  alt: `${SITE_NAME} — лабораторні аналізи`,
 }
 
 export const rootMetadata: Metadata = {
@@ -29,7 +28,7 @@ export const rootMetadata: Metadata = {
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
-  category: 'education',
+  category: 'health',
   formatDetection: {
     email: false,
     address: false,
@@ -70,9 +69,5 @@ export const rootMetadata: Metadata = {
   icons: {
     icon: SITE_LOGO,
     apple: SITE_LOGO,
-  },
-  other: {
-    'product:price:amount': String(MARATHON_PRICE),
-    'product:price:currency': 'UAH',
   },
 }

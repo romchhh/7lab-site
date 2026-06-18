@@ -28,13 +28,11 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
               aria-controls={panelId}
               onClick={() => toggle(index)}
             >
-              <span className={styles.question}>
-                <span className={styles.questionMark} aria-hidden="true">?</span>
-                {item.q}
-              </span>
+              <span className={styles.question}>{item.q}</span>
               <span className={styles.icon} aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 5 L7 9 L11 5" />
+                <svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                  <path d="M8 3.5 V12.5" />
+                  <path d="M3.5 8 H12.5" />
                 </svg>
               </span>
             </button>

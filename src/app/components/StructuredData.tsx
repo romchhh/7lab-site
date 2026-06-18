@@ -1,15 +1,13 @@
 import {
-  MARATHON_PRICE,
   SITE_DESCRIPTION,
   SITE_EMAIL,
-  SITE_FAQ,
   SITE_HERO_IMAGE,
   SITE_LOGO,
   SITE_NAME,
   SITE_PHONE,
   SITE_TITLE,
   SITE_URL,
-  TELEGRAM_BOT_URL,
+  SOCIAL_LINKS,
 } from '../site'
 
 function JsonLd({ data }: { data: Record<string, unknown> }) {
@@ -24,7 +22,7 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
 export default function StructuredData() {
   const organization = {
     '@context': 'https://schema.org',
-    '@type': 'EducationalOrganization',
+    '@type': 'MedicalOrganization',
     name: SITE_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}${SITE_LOGO}`,
@@ -32,7 +30,8 @@ export default function StructuredData() {
     email: SITE_EMAIL,
     telephone: SITE_PHONE,
     description: SITE_DESCRIPTION,
-    sameAs: [TELEGRAM_BOT_URL],
+    slogan: 'Лабораторія та мережа пунктів забору при амбулаторіях',
+    sameAs: Object.values(SOCIAL_LINKS),
   }
 
   const website = {
@@ -49,32 +48,6 @@ export default function StructuredData() {
     },
   }
 
-  const course = {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
-    name: '10-тижневий марафон англійської',
-    description: SITE_DESCRIPTION,
-    provider: {
-      '@type': 'EducationalOrganization',
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    educationalLevel: 'Beginner',
-    inLanguage: 'uk',
-    offers: {
-      '@type': 'Offer',
-      price: String(MARATHON_PRICE),
-      priceCurrency: 'UAH',
-      availability: 'https://schema.org/InStock',
-      url: `${SITE_URL}/#kontakt`,
-    },
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: 'online',
-      courseWorkload: 'PT1H',
-    },
-  }
-
   const webPage = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -85,31 +58,16 @@ export default function StructuredData() {
     isPartOf: { '@id': `${SITE_URL}#website` },
     about: {
       '@type': 'Thing',
-      name: 'Марафон англійської мови',
+      name: 'Лабораторна діагностика',
     },
     primaryImageOfPage: `${SITE_URL}${SITE_HERO_IMAGE}`,
-  }
-
-  const faqPage = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: SITE_FAQ.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.a,
-      },
-    })),
   }
 
   return (
     <>
       <JsonLd data={{ ...website, '@id': `${SITE_URL}#website` }} />
       <JsonLd data={organization} />
-      <JsonLd data={course} />
       <JsonLd data={webPage} />
-      <JsonLd data={faqPage} />
     </>
   )
 }

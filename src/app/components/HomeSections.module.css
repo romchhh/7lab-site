@@ -1,0 +1,549 @@
+/* Intro + phone */
+.introTop {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  grid-template-areas:
+    "heading phone"
+    "body phone";
+  gap: clamp(28px, 5vw, 56px);
+  align-items: start;
+}
+
+.introHeading {
+  grid-area: heading;
+  margin-bottom: 0;
+}
+
+.introBody {
+  grid-area: body;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3vw, 36px);
+}
+
+.phoneWrap {
+  grid-area: phone;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.phoneImage {
+  width: min(100%, 340px);
+  height: auto;
+  filter: drop-shadow(0 28px 56px rgba(var(--deep-rgb), 0.18));
+}
+
+/* Patient route */
+.routeSection {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--sky-rgb), 0.07) 0%,
+    #f8f9fb 10%,
+    #f2f4f7 55%,
+    #f0f2f5 100%
+  );
+  color: var(--deep);
+  overflow: visible;
+}
+
+.routeHeader {
+  max-width: 640px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.routeHeading {
+  margin: 0 0 14px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 800;
+  font-size: var(--heading-section);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.routeLead {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--slate);
+}
+
+.routeTrack {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(28px, 4vw, 52px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.routeTrack::before {
+  content: '';
+  position: absolute;
+  top: 39px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(45, 49, 66, 0.45) 0%,
+    rgba(45, 49, 66, 0.45) 72%,
+    rgba(214, 40, 40, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.routeItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+  padding: 0 10px;
+}
+
+.routeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid rgba(45, 49, 66, 0.22);
+  color: #2D3142;
+  box-shadow: 0 10px 28px rgba(45, 49, 66, 0.16);
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.routeItemFinish .routeIcon {
+  border-color: rgba(214, 40, 40, 0.34);
+  color: #D62828;
+  box-shadow: 0 10px 28px rgba(214, 40, 40, 0.18);
+}
+
+.routeBody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.routeTitle {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 900;
+  line-height: 1.2;
+  color: #2D3142;
+  letter-spacing: -0.03em;
+}
+
+.routeDesc {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--deep);
+  opacity: 0.72;
+  max-width: 26ch;
+  margin-inline: auto;
+}
+
+.routeItemFinish .routeTitle {
+  color: #D62828;
+}
+
+.routeArrow {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #fff;
+  color: #2D3142;
+  border: 1px solid rgba(45, 49, 66, 0.2);
+  box-shadow: 0 4px 16px rgba(45, 49, 66, 0.16);
+  pointer-events: none;
+}
+
+@media (min-width: 769px) {
+  .routeTrack {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(24px, 2.8vw, 44px);
+  }
+
+  .routeTrack::before {
+    display: block;
+  }
+
+  .routeItem {
+    padding: 0 4px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .routeTitle {
+    font-size: clamp(18px, 1.7vw, 24px);
+  }
+
+  .routeDesc {
+    max-width: none;
+    font-size: clamp(14px, 1.15vw, 16px);
+  }
+
+  .routeItem:not(:nth-child(4)) .routeArrow {
+    right: clamp(-22px, -2vw, -16px);
+    top: 39px;
+    left: auto;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .routeTrack {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .routeTrack::before {
+    display: none;
+  }
+
+  .routeHeading {
+    font-size: var(--heading-section-sm);
+  }
+
+  .routeItem {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+    padding: 24px 20px;
+    background: #fafbfc;
+    border: 1px solid rgba(var(--deep-rgb), 0.06);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(var(--deep-rgb), 0.04);
+  }
+
+  .routeIcon {
+    width: 64px;
+    height: 64px;
+    font-size: 22px;
+  }
+
+  .routeBody {
+    align-items: center;
+    padding-top: 0;
+    gap: 10px;
+  }
+
+  .routeTitle {
+    margin-top: 0;
+    font-size: clamp(19px, 5vw, 22px);
+  }
+
+  .routeDesc {
+    margin-inline: auto;
+    max-width: 28ch;
+    font-size: 15px;
+  }
+
+  .routeItem .routeArrow {
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: -28px;
+    width: 36px;
+    height: 36px;
+    transform: translate(-50%, 50%);
+  }
+
+  .routeItem .routeArrow svg {
+    transform: rotate(90deg);
+  }
+
+  .routeItem:last-child .routeArrow {
+    display: none;
+  }
+}
+
+/* Technology */
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3vw, 28px);
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.techCard {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(var(--deep-rgb), 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(var(--deep-rgb), 0.06);
+}
+
+.techVisual {
+  position: relative;
+  min-height: 200px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(var(--sky-rgb), 0.18) 0%, transparent 45%),
+    linear-gradient(135deg, #2d3142 0%, #1a1d20 100%);
+  color: #fff;
+}
+
+.techBadge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.techVisual strong {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.techBody {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.techBody p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--slate);
+}
+
+.techPerks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.techPerks li {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(var(--sky-rgb), 0.08);
+  border: 1px solid rgba(var(--sky-rgb), 0.14);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--deep);
+}
+
+.techCtaWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.techCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #d62828;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 18px 32px;
+  border-radius: 999px;
+  box-shadow: 0 8px 28px rgba(214, 40, 40, 0.35);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.techCta:hover {
+  background: #b01f1f;
+  transform: translateY(-2px);
+}
+
+/* Promotions */
+.promoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #d62828;
+  background: none;
+}
+
+/* About */
+.aboutGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(28px, 4vw, 48px);
+  align-items: start;
+}
+
+@media (min-width: 769px) {
+  .aboutGrid {
+    align-items: center;
+  }
+}
+
+.manifesto {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.manifestoLead,
+.manifestoVision {
+  margin: 0;
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.manifestoLead {
+  font-weight: 600;
+}
+
+.manifestoVision {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.statsGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.statCard {
+  padding: 22px 24px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 769px) {
+  .statCard {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .statCard:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .statCard:first-child {
+    padding-top: 0;
+  }
+
+  .statValue {
+    margin: 0;
+    min-width: 5.5em;
+    flex-shrink: 0;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.2;
+  }
+
+  .statLabel {
+    font-size: clamp(17px, 1.8vw, 20px);
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.78);
+  }
+}
+
+.statValue {
+  margin: 0 0 6px;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+
+.statLabel {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Map */
+.mapLead {
+  margin: -24px 0 32px;
+  max-width: 62ch;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--slate);
+}
+
+@media (max-width: 1024px) {
+  .introTop {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "heading"
+      "phone"
+      "body";
+    gap: clamp(16px, 3.5vw, 28px);
+  }
+
+  .phoneWrap {
+    align-self: center;
+    margin: 4px 0 8px;
+  }
+
+  .phoneImage {
+    width: min(50vw, 200px);
+  }
+
+  .techGrid,
+  .aboutGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .phoneImage {
+    width: min(46vw, 170px);
+  }
+}

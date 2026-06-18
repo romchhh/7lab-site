@@ -15,7 +15,7 @@ export default function NotFound() {
       <div className={styles.glow} aria-hidden="true" />
 
       <main className={styles.inner}>
-        <BrandLogo className={styles.logo} variant="dark" />
+        <BrandLogo className={styles.logo} />
 
         <p className={styles.code} aria-hidden="true">404</p>
         <h1 className={styles.title}>Сторінку не знайдено</h1>

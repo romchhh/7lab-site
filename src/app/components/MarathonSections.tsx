@@ -1,8 +1,7 @@
-import CtaBlock from './CtaBlock'
-import PaymentButton from './PaymentButton'
+import Link from 'next/link'
 import ScenarioFlipCard from './ScenarioFlipCard'
 import FaqAccordion from './FaqAccordion'
-import { SITE_FAQ } from '../site'
+import { CATALOG_URL, SITE_FAQ } from '../site'
 import styles from './MarathonSections.module.css'
 
 const BENEFITS = [
@@ -191,8 +190,6 @@ export default function MarathonSections() {
         </div>
       </section>
 
-      <CtaBlock />
-
       {/* Why fail */}
       <section className={`${styles.section} ${styles.accent}`}>
         <div className={styles.container}>
@@ -319,12 +316,12 @@ export default function MarathonSections() {
                 Ви будете далі думати &ldquo;треба вивчити англійську&rdquo;, чи вже почнете говорити?
               </p>
             </div>
-            <PaymentButton className={styles.finalCta} aria-label="Приєднатись до марафону за 490 грн">
-              🚀 Приєднатись до марафону за 490 грн
+            <Link href={CATALOG_URL} className={styles.finalCta} aria-label="Перейти до каталогу аналізів">
+              Каталог аналізів
               <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M2 14 L14 2 M6 2 H14 V10" />
               </svg>
-            </PaymentButton>
+            </Link>
           </div>
         </div>
       </section>

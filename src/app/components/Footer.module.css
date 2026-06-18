@@ -1,220 +1,172 @@
 .footer {
-  background: linear-gradient(
-    180deg,
-    #f8f6f6 0%,
-    #f2f3f5 55%,
-    #eceef2 100%
-  );
-  color: var(--slate);
-  padding: var(--section-y-md) var(--page-x) 0;
-  overflow: hidden;
-  border-top: 1px solid rgba(var(--deep-rgb), 0.08);
+  background: #2D3142;
+  color: rgba(255, 255, 255, 0.78);
+  padding: clamp(48px, 6vw, 72px) var(--page-x) 0;
 }
 
 .top {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
 }
-
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px 32px;
-  max-width: 1200px;
-  margin: 28px auto 0;
-  padding: 0 var(--page-x);
-}
-.links a {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(var(--deep-rgb), 0.62);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.links a:hover { color: var(--deep); }
 
 .cols {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(40px, 6vw, 72px);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(28px, 4vw, 48px);
 }
+
 .col {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
+
 .col h3 {
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--deep);
-  margin-bottom: 6px;
+  color: #fff;
+  margin-bottom: 4px;
 }
 
+.brandDesc,
 .col p {
-  font-size: clamp(16px, 1.6vw, 18px);
-  color: rgba(var(--deep-rgb), 0.62);
+  font-size: 15px;
   line-height: 1.65;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
 }
 
-.inlineLink {
-  font-size: clamp(16px, 1.6vw, 18px);
+.link {
+  font-size: 15px;
   font-weight: 600;
-  color: rgba(var(--deep-rgb), 0.62);
+  color: rgba(255, 255, 255, 0.72);
   text-decoration: none;
-  line-height: 1.65;
   transition: color 0.2s;
 }
 
-button.inlineLink {
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  text-align: left;
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: clamp(16px, 1.6vw, 18px);
-  font-weight: 700;
+.link:hover {
+  color: #fff;
 }
 
-.inlineLink:hover { color: var(--sky); }
-
-.wordmark {
+.social {
   display: flex;
-  justify-content: center;
-  margin-top: 56px;
-  user-select: none;
+  gap: 16px;
+  margin-top: 4px;
 }
 
-.bottom {
-  margin-top: 24px;
+.social a {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 24px var(--page-x);
-  border-top: 1px solid rgba(var(--deep-rgb), 0.08);
-  max-width: 1200px;
+  color: #D62828;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.social a:hover {
+  color: #ff4a4a;
+  transform: translateY(-2px);
+}
+
+.cabinetBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 14px 22px;
+  border-radius: 50px;
+  background: #D62828;
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(214, 40, 40, 0.35);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.cabinetBtn:hover {
+  background: #B01F1F;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(214, 40, 40, 0.4);
+}
+
+.legal {
+  max-width: 1240px;
+  margin: clamp(40px, 5vw, 56px) auto 0;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.legal p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  max-width: 760px;
   margin-left: auto;
   margin-right: auto;
 }
-.bottom span {
-  font-size: 12px;
-  color: rgba(var(--deep-rgb), 0.45);
+
+.legal a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal a:hover {
+  color: #fff;
+}
+
+.copyright {
+  margin-top: 10px !important;
+  font-size: 12px !important;
 }
 
 .creditWrap {
   display: flex;
   justify-content: center;
-  margin-top: 28px;
-  padding: 0 var(--page-x);
+  padding: 20px var(--page-x) 28px;
 }
 
 .creditBadge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 22px;
+  gap: 8px;
+  padding: 10px 18px;
   border-radius: 999px;
-  border: 1.5px solid rgba(var(--sky-rgb), 0.28);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(var(--sky-rgb), 0.06) 100%);
-  box-shadow: 0 4px 20px rgba(var(--deep-rgb), 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
   text-decoration: none;
-  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .creditBadge:hover {
-  transform: translateY(-2px);
-  border-color: rgba(var(--sky-rgb), 0.55);
-  background: linear-gradient(135deg, #ffffff 0%, rgba(var(--sky-rgb), 0.1) 100%);
-  box-shadow: 0 8px 28px rgba(var(--sky-rgb), 0.16);
-}
-
-.creditBadge:focus-visible {
-  outline: 3px solid rgba(var(--sky-rgb), 0.35);
-  outline-offset: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .creditLabel {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(var(--deep-rgb), 0.58);
-  letter-spacing: 0.01em;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .creditBrand {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
-  color: var(--deep);
-  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.creditIcon {
-  flex-shrink: 0;
-  color: var(--sky);
-  opacity: 0.85;
-  transition: transform 0.2s, opacity 0.2s;
-}
-
-.creditBadge:hover .creditIcon {
-  opacity: 1;
-  transform: translate(1px, -1px);
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .footer {
-    padding: var(--section-y-md) var(--page-x) 0;
-  }
-
-  .top {
-    gap: 44px;
-  }
-
+@media (max-width: 1024px) {
   .cols {
     grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-
-  .wordmark {
-    margin-top: 48px;
-  }
-
-  .links {
-    margin-top: 24px;
-  }
-
-  .creditWrap {
-    margin-top: 24px;
   }
 }
 
-@media (max-width: 768px) {
-  .footer { padding: var(--section-y-sm) var(--page-x) 0; }
-  .cols { grid-template-columns: 1fr 1fr; gap: 28px; }
-  .col h3 { font-size: 13px; }
-  .col p,
-  .inlineLink,
-  button.inlineLink { font-size: 15px; }
-  .wordmark { margin-top: 48px; }
-  .links { margin-top: 22px; }
-  .creditWrap { margin-top: 22px; }
-  .links a {
-    font-size: 13px;
+@media (max-width: 600px) {
+  .cols {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
-}
-
-@media (max-width: 480px) {
-  .footer { padding: var(--section-y-xs) var(--page-x) 0; }
-  .cols { grid-template-columns: 1fr; }
-  .bottom { flex-direction: column; align-items: center; gap: 12px; text-align: center; }
-  .creditBadge { padding: 12px 18px; gap: 8px; }
-  .creditLabel { font-size: 13px; }
-  .creditBrand { font-size: 15px; }
-  .wordmark { margin-top: 40px; }
 }

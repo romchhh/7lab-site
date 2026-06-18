@@ -21,8 +21,8 @@
   --heading-subsection: clamp(34px, 4.2vw, 48px);
   --heading-sub: 24px;
   --heading-card: 17px;
-  --heading-faq: 21px;
-  --heading-faq-sm: 18px;
+  --heading-faq: 28px;
+  --heading-faq-sm: 20px;
 }
 
 .marathon-page {
@@ -76,7 +76,7 @@
     --heading-section-sm: clamp(32px, 5.5vw, 44px);
     --heading-subsection: clamp(28px, 3.8vw, 38px);
     --heading-sub: 22px;
-    --heading-faq: 19px;
+    --heading-faq: 24px;
   }
 }
 
@@ -87,7 +87,7 @@
     --heading-subsection: clamp(22px, 5.2vw, 28px);
     --heading-sub: 17px;
     --heading-card: 14px;
-    --heading-faq: 16px;
-    --heading-faq-sm: 15px;
+    --heading-faq: 22px;
+    --heading-faq-sm: 20px;
   }
 }

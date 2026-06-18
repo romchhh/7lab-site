@@ -1,49 +1,52 @@
-'use client'
 import Image from 'next/image'
-import { SITE_HERO_IMAGE, SITE_NAME } from '../site'
-import TimerCard from './TimerCard'
+import Link from 'next/link'
+import {
+  CATALOG_URL,
+  HERO_DESCRIPTION,
+  RESULTS_URL,
+  SITE_HERO_IMAGE,
+  SITE_NAME,
+} from '../site'
 import styles from './Hero.module.css'
 
 export default function Hero() {
   return (
-    <section className={styles.hero} data-hero aria-label="Головний банер марафону">
+    <section className={styles.hero} data-hero aria-label="Головний банер 7ЛАБ">
       <div className={styles.bg}>
         <Image
           src={SITE_HERO_IMAGE}
-          alt={`Марафон англійської ${SITE_NAME}: почни говорити вже за 10 занять`}
+          alt={`Лабораторія ${SITE_NAME}: швидкі аналізи у вашій амбулаторії`}
           fill
           priority
           sizes="100vw"
           className={styles.bgImage}
         />
+        <div className={styles.bgDim} aria-hidden="true" />
       </div>
-      <div className={styles.overlay} />
 
       <div className={styles.body}>
         <div className={styles.textBlock}>
           <h1 className={styles.headline}>
-            Почни говорити <em>англійською</em>{' '}
-            <span className={styles.highlight}>вже за 10 занять</span>
+            Лабораторія <em>7Лаб</em>
+            <span className={styles.brandColon}>:</span>{' '}
+            <span className={styles.highlight}>швидкі аналізи у вашій амбулаторії</span>
           </h1>
-
-          <p className={styles.prizeBlock}>
-            <span className={styles.prizeLabel}>Покращуй й вигравай</span>
-            <span className={styles.prizeAmount}>10 000 грн</span>
-          </p>
+          <p className={styles.desc}>{HERO_DESCRIPTION}</p>
         </div>
 
-        <div className={styles.bottomRow}>
-          <div className={styles.priceBlock}>
-            <p className={styles.priceLead}>Приєднуйся до марафону вже зараз</p>
-            <p className={styles.priceRow}>
-              <span className={styles.pricePrefix}>лише за</span>
-              <span className={styles.newPrice}>490 грн</span>
-              <span className={styles.priceInstead}>замість</span>
-              <span className={styles.oldPrice}>2 450 грн</span>
-            </p>
-            <span className={styles.discountBadge}>Знижка 80%</span>
-          </div>
-          <TimerCard />
+        <div className={styles.actions}>
+          <Link href={CATALOG_URL} className={`${styles.btn} ${styles.btnPrimary}`}>
+            Каталог аналізів
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M2 14 L14 2 M6 2 H14 V10" />
+            </svg>
+          </Link>
+          <a href={RESULTS_URL} className={`${styles.btn} ${styles.btnSecondary}`} target="_blank" rel="noopener noreferrer">
+            Результати
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M2 14 L14 2 M6 2 H14 V10" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>

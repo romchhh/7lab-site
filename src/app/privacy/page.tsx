@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import { PaymentProvider } from '../components/PaymentProvider'
 import { PRIVACY_POLICY_PATH, SITE_EMAIL, SITE_NAME, SITE_PHONE_DISPLAY, SITE_URL } from '../site'
 import styles from './privacy.module.css'
 
@@ -16,9 +15,8 @@ const UPDATED = '15 червня 2026'
 
 export default function PrivacyPage() {
   return (
-    <PaymentProvider>
-      <div className="marathon-page">
-        <Navbar />
+    <div className="marathon-page">
+      <Navbar />
 
         <main className={styles.page}>
           <article className={styles.inner}>
@@ -133,8 +131,7 @@ export default function PrivacyPage() {
           </article>
         </main>
 
-        <Footer />
-      </div>
-    </PaymentProvider>
+      <Footer />
+    </div>
   )
 }
