@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import BrandLogo from './BrandLogo'
 import { CATALOG_URL, RESULTS_URL, SITE_NAV } from '../site'
+import { openContactModal } from '@/lib/contactModal'
 import styles from './Navbar.module.css'
 
 export default function Navbar({ transparent = false }: { transparent?: boolean }) {
@@ -50,9 +51,16 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
           </div>
 
           <div className={styles.mobileRight}>
-            <a href={RESULTS_URL} className={`${styles.cta} ${styles.ctaSecondary} ${styles.mobileResults}`} target="_blank" rel="noopener noreferrer">
-              Результати
-            </a>
+            <button
+              type="button"
+              className={`${styles.cta} ${styles.ctaPrimary} ${styles.mobileContact}`}
+              onClick={() => {
+                setMenuOpen(false)
+                openContactModal()
+              }}
+            >
+              Зв&apos;язатися
+            </button>
             <button className={styles.hamburger} onClick={() => setMenuOpen(true)} aria-label="Відкрити меню">
               <span /><span /><span />
             </button>

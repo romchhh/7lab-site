@@ -16,8 +16,17 @@ import {
 import base from './sections.module.css'
 import styles from './HomeSections.module.css'
 
-function SectionTitle({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
-  return <h2 className={light ? base.headingLight : base.heading}>{children}</h2>
+function SectionTitle({
+  children,
+  light = false,
+  center = false,
+}: {
+  children: React.ReactNode
+  light?: boolean
+  center?: boolean
+}) {
+  const headingClass = light ? base.headingLight : base.heading
+  return <h2 className={center ? `${headingClass} ${base.headingCenter}` : headingClass}>{children}</h2>
 }
 
 function PromotionIcon({ type }: { type: (typeof LAB_PROMOTIONS)[number]['icon'] }) {
@@ -243,7 +252,7 @@ export default function HomeSections() {
       {/* FAQ */}
       <section id="faq" className={`${base.section} ${base.mutedFromWhite}`}>
         <div className={base.container}>
-          <SectionTitle>Відповіді на популярні питання</SectionTitle>
+          <SectionTitle center>Відповіді на популярні питання</SectionTitle>
           <FaqAccordion items={[...SITE_FAQ]} />
         </div>
       </section>

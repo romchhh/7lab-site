@@ -66,7 +66,6 @@ export default function ContactSection() {
 
         <div className={styles.shellInner}>
           <div className={styles.info}>
-          <p className={styles.eyebrow}>Контакти</p>
           <h2 className={styles.heading}>Залишити заявку</h2>
           <p className={styles.lead}>
             Маєте питання щодо аналізів, підготовки або пунктів забору? Залиште контакти — ми передзвонимо найближчим часом.

@@ -60,9 +60,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 85px var(--page-x);
+  padding: clamp(112px, 13vw, 132px) var(--page-x);
   gap: clamp(24px, 3.5vw, 36px);
   min-height: 100%;
+}
+
+@media (min-width: 769px) {
+  .body {
+    justify-content: flex-start;
+    padding-top: clamp(168px, 20vh, 220px);
+    padding-bottom: clamp(48px, 6vw, 80px);
+  }
 }
 
 .textBlock {

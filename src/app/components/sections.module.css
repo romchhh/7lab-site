@@ -47,10 +47,11 @@
 .mutedFromWhite {
   background: linear-gradient(
     180deg,
-    rgba(var(--brand-red-rgb), 0.03) 0%,
-    var(--white) 8%,
-    var(--bg-light) 28%,
-    var(--bg-muted) 85%,
+    var(--white) 0%,
+    var(--white) 6%,
+    rgba(var(--brand-red-rgb), 0.02) 12%,
+    var(--bg-light) 26%,
+    var(--bg-muted) 78%,
     var(--bg-light) 100%
   );
   color: var(--deep);
@@ -74,6 +75,12 @@
   letter-spacing: -0.03em;
   margin-bottom: 48px;
   max-width: 900px;
+}
+
+.headingCenter {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .headingLight {

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import ConsentLabel from './ConsentLabel'
+import { CONTACT_MODAL_EVENT } from '@/lib/contactModal'
 import styles from './FloatingContact.module.css'
 
 type FormState = { name: string; phone: string; comment: string; consent: boolean }
@@ -19,6 +20,12 @@ export default function FloatingContact() {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [open])
+
+  useEffect(() => {
+    const openModal = () => setOpen(true)
+    window.addEventListener(CONTACT_MODAL_EVENT, openModal)
+    return () => window.removeEventListener(CONTACT_MODAL_EVENT, openModal)
+  }, [])
 
   const set = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value
