@@ -1,5 +1,5 @@
 .footer {
-  background: #2D3142;
+  background: var(--graphite);
   color: rgba(255, 255, 255, 0.78);
   padding: clamp(48px, 6vw, 72px) var(--page-x) 0;
 }
@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #D62828;
+  color: var(--brand-red);
   transition: color 0.2s, transform 0.2s;
 }
 
@@ -76,19 +76,19 @@
   align-self: flex-start;
   padding: 14px 22px;
   border-radius: 50px;
-  background: #D62828;
+  background: var(--brand-red);
   color: #fff !important;
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(214, 40, 40, 0.35);
+  box-shadow: 0 6px 20px rgba(var(--brand-red-rgb), 0.35);
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .cabinetBtn:hover {
-  background: #B01F1F;
+  background: var(--brand-red-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(214, 40, 40, 0.4);
+  box-shadow: 0 8px 24px rgba(var(--brand-red-rgb), 0.4);
 }
 
 .legal {

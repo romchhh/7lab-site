@@ -14,9 +14,9 @@
 }
 
 .solid {
-  background: rgba(45, 49, 66, 0.97);
+  background: rgba(var(--graphite-rgb), 0.97);
   backdrop-filter: blur(14px);
-  box-shadow: 0 2px 16px rgba(26, 29, 32, 0.2);
+  box-shadow: 0 2px 16px rgba(var(--graphite-dark-rgb), 0.2);
 }
 
 .nav {
@@ -26,7 +26,7 @@
   height: 85px;
   max-width: 1240px;
   margin: 0 auto;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
 }
 
 .brand {
@@ -74,7 +74,7 @@
   width: 188px;
   min-height: 40px;
   padding: 8px 14px;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -88,15 +88,15 @@
 }
 
 .ctaPrimary {
-  background: #D62828;
+  background: var(--brand-red);
   color: #fff;
-  border: 2px solid #D62828;
-  box-shadow: 0 6px 20px rgba(214, 40, 40, 0.35);
+  border: 2px solid var(--brand-red);
+  box-shadow: 0 6px 20px rgba(var(--brand-red-rgb), 0.35);
 }
 
 .ctaPrimary:hover {
-  background: #B01F1F;
-  border-color: #B01F1F;
+  background: var(--brand-red-dark);
+  border-color: var(--brand-red-dark);
 }
 
 .ctaSecondary {
@@ -148,7 +148,7 @@
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(26, 29, 32, 0.98);
+  background: rgba(var(--graphite-dark-rgb), 0.98);
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -156,7 +156,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
 }
 
 .drawer.open {
@@ -173,7 +173,7 @@
 }
 
 .drawer a:hover {
-  color: #D62828;
+  color: var(--brand-red);
 }
 
 .drawerCta {
@@ -186,8 +186,8 @@
 }
 
 .drawerCtaPrimary {
-  background: #D62828 !important;
-  border: 2px solid #D62828 !important;
+  background: var(--brand-red) !important;
+  border: 2px solid var(--brand-red) !important;
 }
 
 .drawerClose {

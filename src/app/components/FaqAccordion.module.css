@@ -35,12 +35,12 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
   transition: color 0.2s;
 }
 
 .trigger:hover .question {
-  color: #d62828;
+  color: var(--brand-red);
 }
 
 .question {
@@ -57,7 +57,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: #d62828;
+  color: var(--brand-red);
   flex-shrink: 0;
   transition: transform 0.25s ease;
 }

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className={`marathon-page ${styles.page}`}>
+    <div className={`lab-page ${styles.page}`}>
       <div className={styles.glow} aria-hidden="true" />
 
       <main className={styles.inner}>

@@ -6,11 +6,11 @@
 }
 
 .wordmark {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
   font-weight: 900;
   font-size: 28px;
   letter-spacing: -0.03em;
-  color: #D62828;
+  color: var(--brand-red);
   line-height: 1;
 }
 

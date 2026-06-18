@@ -1,9 +1,8 @@
-import { Montserrat } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
-export const montserrat = Montserrat({
+export const inter = Inter({
   subsets: ['latin', 'cyrillic'],
   weight: ['400', '500', '600', '700', '800', '900'],
-  style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-montserrat',
+  variable: '--font-inter',
 })

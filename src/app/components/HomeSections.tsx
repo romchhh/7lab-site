@@ -13,7 +13,7 @@ import {
   SITE_PHONE_IMAGE,
   SITE_VISION,
 } from '../site'
-import base from './MarathonSections.module.css'
+import base from './sections.module.css'
 import styles from './HomeSections.module.css'
 
 function SectionTitle({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
@@ -209,7 +209,7 @@ export default function HomeSections() {
       </section>
 
       {/* About */}
-      <section id="pro-nas" className={`${base.section} ${base.dark} marathon-glow`}>
+      <section id="pro-nas" className={`${base.section} ${base.dark} brand-glow`}>
         <div className={base.container}>
           <SectionTitle light>Про нас</SectionTitle>
           <div className={styles.aboutGrid}>

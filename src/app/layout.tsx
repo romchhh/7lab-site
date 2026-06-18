@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from 'next'
-import { montserrat } from './fonts'
+import { inter } from './fonts'
 import FloatingContact from './components/FloatingContact'
 import { rootMetadata } from './seo'
 import './globals.css'
-import './site.css'
+import './brand.css'
 
 export const metadata: Metadata = rootMetadata
 
@@ -16,8 +16,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="uk" className={montserrat.variable}>
-      <body className={montserrat.className}>
+    <html lang="uk" className={inter.variable}>
+      <body className={inter.className}>
         {children}
         <FloatingContact />
       </body>

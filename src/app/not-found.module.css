@@ -51,7 +51,7 @@
   line-height: 0.9;
   letter-spacing: -0.06em;
   color: transparent;
-  background: linear-gradient(135deg, var(--sky) 0%, #8f1428 100%);
+  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   margin-bottom: 8px;
@@ -96,7 +96,7 @@
   background: var(--sky);
   color: #fff;
   text-decoration: none;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
   font-size: 16px;
   font-weight: 800;
   letter-spacing: 0.03em;
@@ -121,7 +121,7 @@
   background: rgba(255, 255, 255, 0.88);
   color: var(--deep);
   text-decoration: none;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 700;
   transition: border-color 0.2s, background 0.2s, transform 0.2s;

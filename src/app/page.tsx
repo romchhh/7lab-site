@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="marathon-page">
+    <div className="lab-page">
       <StructuredData />
       <Navbar transparent />
       <main>

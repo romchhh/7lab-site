@@ -25,12 +25,12 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-color: rgba(26, 29, 32, 0.55);
+  background-color: rgba(var(--graphite-dark-rgb), 0.55);
   background-image: linear-gradient(
     to right,
-    rgba(26, 29, 32, 0.45) 0%,
-    rgba(26, 29, 32, 0.25) 55%,
-    rgba(26, 29, 32, 0.15) 100%
+    rgba(var(--graphite-dark-rgb), 0.45) 0%,
+    rgba(var(--graphite-dark-rgb), 0.25) 55%,
+    rgba(var(--graphite-dark-rgb), 0.15) 100%
   );
   pointer-events: none;
 }
@@ -82,7 +82,7 @@
 }
 
 .headline {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
   font-weight: 800;
   font-size: clamp(36px, 4.8vw, 58px);
   line-height: 1.12;
@@ -93,18 +93,18 @@
 }
 
 .headline em {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
   font-weight: 800;
   font-style: normal;
-  color: #D62828;
+  color: var(--brand-red);
   letter-spacing: -0.02em;
 }
 
 .brandColon {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
   font-weight: 800;
   font-style: normal;
-  color: #D62828;
+  color: var(--brand-red);
   letter-spacing: -0.02em;
 }
 
@@ -141,7 +141,7 @@
   width: 240px;
   min-height: 54px;
   padding: 14px 24px;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -154,15 +154,15 @@
 }
 
 .btnPrimary {
-  background: #D62828;
+  background: var(--brand-red);
   color: #fff;
-  border: 2px solid #D62828;
-  box-shadow: 0 8px 28px rgba(214, 40, 40, 0.35);
+  border: 2px solid var(--brand-red);
+  box-shadow: 0 8px 28px rgba(var(--brand-red-rgb), 0.35);
 }
 
 .btnPrimary:hover {
-  background: #B01F1F;
-  border-color: #B01F1F;
+  background: var(--brand-red-dark);
+  border-color: var(--brand-red-dark);
 }
 
 .btnSecondary {
@@ -241,12 +241,12 @@
   }
 
   .bgDim {
-    background-color: rgba(26, 29, 32, 0.62);
+    background-color: rgba(var(--graphite-dark-rgb), 0.62);
     background-image: linear-gradient(
       to right,
-      rgba(26, 29, 32, 0.55) 0%,
-      rgba(26, 29, 32, 0.38) 45%,
-      rgba(26, 29, 32, 0.22) 100%
+      rgba(var(--graphite-dark-rgb), 0.55) 0%,
+      rgba(var(--graphite-dark-rgb), 0.38) 45%,
+      rgba(var(--graphite-dark-rgb), 0.22) 100%
     );
   }
 

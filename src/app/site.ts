@@ -2,8 +2,8 @@ export const SITE_NAME = '7ЛАБ'
 export const SITE_SHORT_NAME = '7ЛАБ'
 export const SITE_LOGO = '/images/logo-7lab.png'
 export const SITE_LOGO_DARK = '/images/logo-7lab-dark.png'
-export const SITE_HERO_IMAGE = '/images/Gemini_Generated_Image_f2287jf2287jf228.png'
-export const SITE_PHONE_IMAGE = '/images/ChatGPT Image Jun 19, 2026, 12_37_07 AM 1.png'
+export const SITE_HERO_IMAGE = '/images/hero-bg.png'
+export const SITE_PHONE_IMAGE = '/images/phone-app.png'
 
 function normalizeSiteUrl(url: string): string {
   const trimmed = url.trim().replace(/\/$/, '')

@@ -29,39 +29,6 @@ async function sendTelegramMessage(text: string): Promise<void> {
   }
 }
 
-export type PaymentNotificationData = {
-  name: string
-  phone: string
-  telegram: string
-  amount: number
-  invoiceId: string
-  reference: string
-}
-
-export async function sendPaymentNotification(payment: PaymentNotificationData): Promise<void> {
-  const lines = [
-    '💳 <b>Нова оплата марафону</b>',
-    '',
-    `👤 <b>Ім'я:</b> ${escapeHtml(payment.name)}`,
-  ]
-
-  if (payment.phone && payment.phone !== '—') {
-    lines.push(`📞 <b>Телефон:</b> ${escapeHtml(payment.phone)}`)
-  }
-
-  if (payment.telegram) {
-    lines.push(`✈️ <b>Telegram:</b> ${escapeHtml(payment.telegram)}`)
-  }
-
-  lines.push(
-    `💰 <b>Сума:</b> ${payment.amount} грн`,
-    `🧾 <b>Рахунок:</b> ${escapeHtml(payment.invoiceId)}`,
-    `🔖 <b>Reference:</b> ${escapeHtml(payment.reference)}`,
-  )
-
-  await sendTelegramMessage(lines.join('\n'))
-}
-
 export type ContactFormData = {
   name: string
   phone: string
@@ -70,7 +37,7 @@ export type ContactFormData = {
 
 export async function sendContactNotification(data: ContactFormData): Promise<void> {
   const lines = [
-    '📩 <b>Нова заявка з сайту</b>',
+    '📩 <b>Нова заявка з сайту 7ЛАБ</b>',
     '',
     `👤 <b>Ім'я:</b> ${escapeHtml(data.name)}`,
     `📞 <b>Телефон:</b> ${escapeHtml(data.phone)}`,

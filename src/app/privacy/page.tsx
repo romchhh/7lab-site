@@ -15,7 +15,7 @@ const UPDATED = '15 червня 2026'
 
 export default function PrivacyPage() {
   return (
-    <div className="marathon-page">
+    <div className="lab-page">
       <Navbar />
 
         <main className={styles.page}>

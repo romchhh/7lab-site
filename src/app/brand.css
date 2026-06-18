@@ -1,21 +1,33 @@
 :root {
-  --deep: #01060F;
-  --deep-rgb: 1, 6, 15;
-  --slate: #4A5568;
-  --sky: #C41E3A;
-  --sky-rgb: 196, 30, 58;
-  --sky-dark: #9A182E;
-  --sand: #E8C9CC;
-  --white: #ffffff;
-  --black: #000308;
+  /* 7ЛАБ brand identity */
+  --graphite: #2D3142;
+  --graphite-rgb: 45, 49, 66;
+  --graphite-dark: #1A1D20;
+  --graphite-dark-rgb: 26, 29, 32;
+  --brand-red: #D62828;
+  --brand-red-rgb: 214, 40, 40;
+  --brand-red-dark: #B01F1F;
+  --white: #FFFFFF;
+  --bg-light: #F5F6F8;
+
+  /* Shared tokens (used across components) */
+  --font-sans: var(--font-inter), Arial, sans-serif;
+  --deep: var(--graphite-dark);
+  --deep-rgb: var(--graphite-dark-rgb);
+  --slate: #5A5F72;
+  --sky: var(--brand-red);
+  --sky-rgb: var(--brand-red-rgb);
+  --sky-dark: var(--brand-red-dark);
+  --black: var(--graphite-dark);
+  --bg-white: var(--white);
+  --bg-muted: var(--bg-light);
+  --bg-accent: #FFF0F0;
+
   --page-x: clamp(32px, 6vw, 80px);
   --section-y: clamp(40px, 5vw, 70px);
   --section-y-md: 36px;
   --section-y-sm: 32px;
   --section-y-xs: 28px;
-  --bg-white: #ffffff;
-  --bg-muted: #f4f5f7;
-  --bg-accent: #fff5f5;
   --heading-section: clamp(48px, 6.5vw, 86px);
   --heading-section-sm: clamp(42px, 12vw, 62px);
   --heading-subsection: clamp(34px, 4.2vw, 48px);
@@ -25,22 +37,22 @@
   --heading-faq-sm: 20px;
 }
 
-.marathon-page {
-  font-family: var(--font-montserrat), sans-serif;
-  background: linear-gradient(180deg, #fafbfc 0%, #ffffff 100%);
+.lab-page {
+  font-family: var(--font-sans);
+  background: linear-gradient(180deg, var(--bg-light) 0%, var(--white) 100%);
   color: var(--deep);
 }
 
-.marathon-page button {
-  font-family: var(--font-montserrat), sans-serif;
+.lab-page button {
+  font-family: var(--font-sans);
 }
 
-.marathon-page .marathon-glow {
+.lab-page .brand-glow {
   position: relative;
   overflow: hidden;
 }
 
-.marathon-page .marathon-glow::before {
+.lab-page .brand-glow::before {
   content: '';
   position: absolute;
   left: 50%;
@@ -52,9 +64,9 @@
   background:
     radial-gradient(
       ellipse at center,
-      rgba(var(--sky-rgb), 0.55) 0%,
-      rgba(var(--sky-rgb), 0.28) 32%,
-      rgba(var(--sky-rgb), 0.1) 52%,
+      rgba(var(--brand-red-rgb), 0.55) 0%,
+      rgba(var(--brand-red-rgb), 0.28) 32%,
+      rgba(var(--brand-red-rgb), 0.1) 52%,
       transparent 72%
     );
   filter: blur(48px);
@@ -62,7 +74,7 @@
   z-index: 0;
 }
 
-.marathon-page .marathon-glow > * {
+.lab-page .brand-glow > * {
   position: relative;
   z-index: 1;
 }

@@ -2,10 +2,10 @@
   position: relative;
   background: linear-gradient(
     180deg,
-    #f0f2f5 0%,
-    #ffffff 12%,
-    #ffffff 50%,
-    #f5f6f8 100%
+    var(--bg-light) 0%,
+    var(--white) 12%,
+    var(--white) 50%,
+    var(--bg-light) 100%
   );
   padding: var(--section-y) var(--page-x);
 }
@@ -204,7 +204,7 @@ a.metaValue:hover {
   border: none;
   border-radius: 50px;
   padding: 20px 36px;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-sans);
   font-size: 16px;
   font-weight: 800;
   cursor: pointer;
